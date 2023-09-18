@@ -309,7 +309,7 @@ void admin()
                             userCount++;
                         }
                     }
-                    Sleep(5000);
+                    Sleep(6000);
 
                     file.close();
                 }
@@ -385,7 +385,9 @@ int main()
 
 		default:
 			cout << "Zly wybor!" << endl;
-			return 0;
+			Sleep(1000);
+			system("cls");
+			main();
 		}
 	}
 
