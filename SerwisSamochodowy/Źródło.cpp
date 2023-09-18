@@ -379,6 +379,7 @@ int main()
 			break;
 
 		case 4:
+		    system("cls");
 			cout << "Wyjscie z programu." << endl;
 			return 0;
 			break;
