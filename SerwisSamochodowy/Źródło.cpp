@@ -94,6 +94,49 @@ void zmienHaslo(string login)
 	cout << "1. Admin" << endl << "2. Kierowca" << endl << "3. Klient" << endl << endl;
 	cin >> wybor2;
 
+	if (file.is_open())
+    {
+        string line;
+        int userCount = 0;
+
+        while (getline(file, line) && userCount < 3)
+        {
+            size_t pos = line.find(':');
+            if (pos != string::npos)
+            {
+                string username = line.substr(0, pos);
+                string password = line.substr(pos + 1);
+
+                switch (userCount)
+                {
+                    case 0:
+                        string adminUsr = username;
+                        string adminPas = password;
+                        break;
+                    case 1:
+                        string kierowcaUsr = username;
+                        string kierowcaPas = password;
+                        break;
+                    case 2:
+                        string klientUsr = username;
+                        string klientInt = password;
+                        break;
+                }
+
+                cout << "Login: " << username << endl << "Haslo: " << password << endl << endl;
+                userCount++;
+            }
+        }
+        Sleep(6000);
+
+        file.close();
+    }
+    else
+    {
+        cout << "Nie mozna otworzyc pliku z haslami i loginami!" << endl;
+        return; // Zwróć błąd
+    }
+
 	switch (wybor2)
 	{
 	case 1:
